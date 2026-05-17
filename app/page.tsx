@@ -2,12 +2,13 @@
 
 import OS from "@/COMPONENTS/OS";
 import FooterOS from "@/COMPONENTS/footer";
-import type { WindowApp, Setting } from "@/TYPES/index";
+import type { WindowApp, WindowsInfo } from "@/TYPES/index";
 import { useState } from "react";
 import mikesenpai from "@/IMAGES/mike senpai.png";
 import syncro from "@/IMAGES/Syncro logo.png";
 import resetme from "@/IMAGES/logg.png";
 import fivem from "@/IMAGES/five m.png";
+import WindowsInfoS from "@/COMPONENTS/WindowsInfo";
 
 export default function Home() {
 
@@ -15,13 +16,16 @@ export default function Home() {
   
   const [minimizedWindows, setMinimizedWindows] = useState<WindowApp[]>([]);
 
-  const [openSettings, setOpenSettings] = useState<boolean>(false);
-  const [isSettingsVisible, setIsSettingsVisible] = useState<boolean>(false);
-
-  const handleOpenSetting = () => {
-     
-    
+  const [isWindowsInfoOpen, setIsWindowsInfoOpen] = useState<boolean>(false);
+  
+  const handleOpenWindowsInfo = () => {
+    setIsWindowsInfoOpen(true)
   }
+   const handleCloseWindowsInfo = () => {
+    setIsWindowsInfoOpen(false);
+  };
+
+
   
   const handleOpenWindow = (name: string, link: string, iconPath: any) => {
    
@@ -82,6 +86,7 @@ export default function Home() {
           openWindows={openWindows}
           onCloseWindow={handleCloseWindow}
           onMinimizeWindow={handleMinimizeWindow}
+           onOpenWindowsInfo={handleOpenWindowsInfo}
         />
       </div>
 
@@ -92,8 +97,14 @@ export default function Home() {
           minimizedWindows={minimizedWindows}
           onRestoreWindow={handleRestoreWindow}
           onCloseWindow={handleCloseWindow}
+          onOpenWindowsInfo={handleOpenWindowsInfo}
         />
       </div>
+
+       <WindowsInfoS 
+        isOpen={isWindowsInfoOpen}
+        onClose={handleCloseWindowsInfo}
+      />
     </>
   );
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import IconsList from "@/COMPONENTS/IconsList";
+import IconsList from "@/COMPONENTS/IconList";
 import Image from "next/image";
 import type { WindowApp } from "@/TYPES/index";
 import wallpaper from "@/IMAGES/wallpaper.jpg";
@@ -10,10 +10,13 @@ export default function OS({
   onOpenWindow, 
   openWindows, 
   onCloseWindow,
+  onOpenWindowsInfo,
   onMinimizeWindow
+  
 }: { 
   onOpenWindow: (name: string, link: string, iconPath: any) => void;
   openWindows: WindowApp[];
+  onOpenWindowsInfo: () => void;
   onCloseWindow: (name: string) => void;
   onMinimizeWindow: (name: string) => void;
 }) {

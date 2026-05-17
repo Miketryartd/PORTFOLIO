@@ -26,7 +26,8 @@ export type Footer = {
    openedWindows: string[];
 }
 
-export type Setting = {
+export type WindowsInfo = {
    isOpen: boolean;
    onClick: () => void;
+   onClose?: () => void;
 }
