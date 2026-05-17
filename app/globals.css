@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+:root {
+  scroll-behavior: smooth;
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+
+.text-with-border {
+    text-shadow: 
+      
+        -1px -1px 0 #000,
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000,
+      
+        0px -1px 0 #000,
+        0px 1px 0 #000,
+        -1px 0px 0 #000,
+        1px 0px 0 #000;
+    color: white;
+}
